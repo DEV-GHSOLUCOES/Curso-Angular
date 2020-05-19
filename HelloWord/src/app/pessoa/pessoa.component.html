@@ -1,0 +1,94 @@
+
+
+<button (click)="cadastroPessoa()" >Cadastro Pessoa</button>
+
+<app-layout *ngIf="mostrarCadastroPessoa">
+
+    
+    
+    <p>{{titulo}}</p>
+    <h3 [textContent]="titulo"></h3>
+    
+    <table border="2">
+
+        <tr>
+            <td>Codigo</td>
+            <td>Nome</td>
+            <td>Telefone</td>
+            <td>Data de Nascimento</td>
+            <td>Endereço</td>
+            <td>Bairro</td>
+            <td>Cidade</td>
+            <td>Estado</td>
+        </tr>
+
+        <tr *ngFor="let pessoa of listaPessoas">
+            <td>{{pessoa.codigo}}</td>
+            <td>{{pessoa.nome}}</td>
+            <td>{{pessoa.telefone}}</td>
+            <td>{{pessoa.datanascimento}}</td>
+            <td>{{pessoa.endereco}}</td>
+            <td>{{pessoa.bairro}}</td>
+            <td>{{pessoa.cidade}}</td>
+            <td>{{pessoa.estado}}</td>
+            <td><a style="cursor: pointer;" (click)="alterar(pessoa)">Alterar</a></td>
+            <td><a style="cursor: pointer;" (click)="excluir(pessoa)">Excluir</a></td>
+        </tr>
+    </table>
+    <br>
+
+
+    <app-inputtexto nome="Codigo:" 
+        [valorInicial]="pessoa.codigo">
+    </app-inputtexto>
+
+    <label>Codigo: </label>
+    <input type="text"  [(ngModel)]= "pessoa.codigo"/>
+    
+    <br>
+    
+    <label>Nome: </label>
+    <input type="text" [(ngModel)]= "pessoa.nome"/>
+
+    <br>
+   
+    <label>Telefone: </label>
+    <input type="text" [(ngModel)]= "pessoa.telefone"/>
+
+    <br>
+
+    <label>Data Nascimento: </label>
+    <input type="text" [(ngModel)]= "pessoa.datanascimento"/>
+
+    <br>
+   
+    <label>Endereço: </label>
+    <input type="text" [(ngModel)]= "pessoa.endereco"/>
+
+    <br>
+ 
+    <label>Bairro: </label>
+    <input type="text" [(ngModel)]= "pessoa.bairro"/>
+
+    <br>
+    
+    <label>Cidade: </label>
+    <input type="text" [(ngModel)]= "pessoa.cidade"/>
+
+    <br>
+   
+    <app-select nome="Estado:" [opcoes]="listaEstado" [valorInicial]="pessoa.estado" (valorRetorno)="pessoa.estado=$event"></app-select>
+    
+    
+
+
+
+
+    <br>
+    <br>
+    <app-button (clique)="imprimir()" nome="imprimir"></app-button>&nbsp;
+    <app-button *ngIf="!mostrarButtonSalvar" (clique)="incluir()" nome="Incluir"></app-button>&nbsp;
+    <app-button *ngIf="mostrarButtonSalvar" (clique)="salvarAlteracao()" nome="Alterar" ></app-button>
+   
+
+</app-layout>

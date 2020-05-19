@@ -1,0 +1,4 @@
+<label>{{nome}}</label>
+<select [(ngModel)]="valorInicial" (change)="retornarValor()">
+    <option *ngFor="let opcao of opcoes" [ngValue]="opcao.codigo">{{opcao.nome}}</option>
+</select> 

@@ -1,0 +1,99 @@
+
+
+<button (click)="cadastroProduto()" >Cadastro Produto</button>
+
+<app-layout *ngIf="mostrarCadastroProduto">
+
+    
+    
+    <p>{{titulo}}</p>
+    <h3 [textContent]="titulo"></h3>
+    
+    <table border="2">
+
+        <tr>
+            <td>Codigo</td>
+            <td>Nome</td>
+            <td>Descrição</td>
+            <td>Lote</td>
+            <td>Valor Custo</td>
+            <td>Valor Venda</td>
+            <td>Data Validade</td>
+            <td>Tipo</td>
+        </tr>
+
+        <tr *ngFor="let produto of listaProdutos">
+            <td>{{produto.codigo}}</td>
+            <td>{{produto.nome}}</td>
+            <td>{{produto.descricao}}</td>
+            <td>{{produto.lote}}</td>
+            <td>{{produto.valorCusto}}</td>
+            <td>{{produto.valorVenda}}</td>
+            <td>{{produto.dataValidade}}</td>
+            <td>{{produto.tipo}}</td>
+            <td><a style="cursor: pointer;" (click)="alterar(produto)">Alterar</a></td>
+            <td><a style="cursor: pointer;" (click)="excluir(produto)">Excluir</a></td>
+        </tr>
+    </table>
+    <br>
+
+
+    <app-inputtexto nome="Codigo:" 
+        [valorInicial]="produto.codigo"
+        (valorRetorno)="produto.codigo=$event">
+    </app-inputtexto>
+   
+    <br>
+    
+    <app-inputtexto nome="Nome:" 
+        [valorInicial]="produto.nome">
+    </app-inputtexto>
+
+    <br>
+
+    <app-inputtexto nome="Descrição:" 
+       [valorInicial]="produto.descricao">
+   </app-inputtexto>
+
+    <br>
+   
+    <app-inputtexto nome="Lote" 
+       [valorInicial]="produto.lote">
+    </app-inputtexto>
+
+    <br>
+
+    <app-inputtexto nome="valor Custo:" 
+       [valorInicial]="produto.valorCusto">
+    </app-inputtexto>
+
+    <br>
+   
+    <app-inputtexto nome="valor Venda:" 
+       [valorInicial]="produto.valorVenda">
+    </app-inputtexto>
+
+    <br>
+ 
+    <app-inputtexto nome="Data Validade:" 
+       [valorInicial]="produto.dataValidade">
+    </app-inputtexto>
+    <br>
+    
+  
+   
+    <app-select nome="Tipo" [opcoes]="listaTipo" [valorInicial]="produto.tipo" (valorRetorno)="produto.tipo=$event"></app-select>
+    
+    
+
+
+
+
+    <br>
+    <br>
+    <app-button (clique)="imprimir()" nome="imprimir"></app-button>&nbsp;
+    <app-button *ngIf="!mostrarButtonSalvar" (clique)="incluir()" nome="Incluir"></app-button>&nbsp;
+    <app-button *ngIf="mostrarButtonSalvar" (clique)="salvarAlteracao()" nome="Alterar" ></app-button>
+   
+
+</app-layout>
