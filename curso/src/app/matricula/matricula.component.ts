@@ -68,7 +68,7 @@ export class MatriculaComponent implements OnInit {
   }
 
   alterar(){    
-    this.router.navigate(['/matricula/alterar/'+this.selecionado.aluno.codigo]);
+    this.router.navigate(['/matricula/alterar/'+this.selecionado.aluno.codigo]); 
   }
 
   remover(){
