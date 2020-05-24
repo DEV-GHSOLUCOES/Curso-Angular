@@ -1,1 +1,55 @@
-<p>matricula works!</p>
+<app-layout>
+
+  <!-- https://getbootstrap.com/docs/4.4/components/card/ -->
+  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Matricula</h5>  
+        <div class="row">
+          <div class="form-group col-lg-12">
+            <label for="aluno"class="control-label">Aluno:</label>
+
+            <select [(ngModel)]="matricula.aluno" class="form-control">
+              <option [ngValue]="null">Selecione</option>  
+              <option *ngFor="let aluno of listaAluno" [ngValue]="aluno">{{aluno.nome}}</option>
+            </select>
+
+          </div>            
+        </div>
+        <div class="row" style="margin-bottom: 20px;">
+          <div class="col-lg-12">
+            <button type="button" class="btn btn-primary" (click)="pesquisar()">Pesquisar</button>
+          </div>
+        </div> 
+        
+        <div class="row">
+          <div class="col-lg-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Codigo</th>
+                  <th>Nome</th>                                   
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let matricula of listaMatricula">
+                  <th><input type="radio" name="selecionado" (change)="selecionar(matricula)"/></th>
+                  <th>{{matricula.codigo}}</th>
+                  <td>{{matricula.aluno.nome}}</td>
+                </tr>                  
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 20px;">
+          <div class="col-lg-12">
+            <button type="button" class="btn btn-primary" style="margin-right: 10px;" (click)="incluir()">Incluir</button>
+            <button type="button" class="btn btn-primary" style="margin-right: 10px;" (click)="remover()">Excluir</button>
+          </div>
+        </div>
+
+      </div>
+  </div>
+  
+</app-layout>

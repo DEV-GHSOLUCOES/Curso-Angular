@@ -1,3 +1,4 @@
+import { MatriculaServicoService } from './matricula/servico/matricula-servico.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,8 @@ import { CursomanterComponent } from './cursomanter/cursomanter.component';
 import { CursoServicoService } from './curso/servico/curso-servico.service';
 import { AlunoServicoService } from './aluno/servico/aluno-servico.service';
 import { AlunomanterComponent } from './alunomanter/alunomanter.component';
+import {  MatriculaManterComponent } from './matriculamanter/matriculamanter.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { AlunomanterComponent } from './alunomanter/alunomanter.component';
     CursoComponent,
     MatriculaComponent,
     CursomanterComponent,
-    AlunomanterComponent
+    AlunomanterComponent,
+    MatriculaManterComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import { AlunomanterComponent } from './alunomanter/alunomanter.component';
   ],
   providers: [
     CursoServicoService,
-    AlunoServicoService
+    AlunoServicoService,
+    MatriculaServicoService
 
   ],
   bootstrap: [AppComponent]
