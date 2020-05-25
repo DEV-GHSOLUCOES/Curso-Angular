@@ -17,7 +17,7 @@ const routes: Routes = [
     component: HomeComponent,
     pathMatch: 'full'
   },
-  {
+  { 
     path: 'curso',    
     component: CursoComponent,
     pathMatch: 'full'

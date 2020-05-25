@@ -1,0 +1,75 @@
+
+
+<app-layout>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Produto</h5>
+            <div class="row">
+                <div class="form-group col-12">
+                    <label for="nome" class="control-label">Nome:</label>
+                    <input type="text"  class="form-control" [(ngModel)]="nome"/>
+                    
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-12">
+                    <button type="button" class="btn btn-outline-success" (click)="pesquisar()">Pesquisar</button>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+
+                                <th></th>
+                                <th>codigo</th>
+                                <th>nome</th>
+                                <th>Descricao</th>
+                                <th>Valor</th>
+                                <th>Observação</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let produto of listaProduto">
+
+                                <th><input type="radio" name="selecionado" (change)="selecionar(produto)">  </th>
+                                <td>{{produto.codigo}}</td>
+                                <td>{{produto.nome}}</td>
+                                <td>{{produto.descricao}}</td>
+                                <td>{{produto.valor}}</td>
+                                <td>{{produto.obs}}</td>
+                                
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-12">
+                    <button type="button" class="btn btn-outline-success" style="margin-right: 10px;"  (click)="incluir()">Incluir</button>
+                    <button type="button" class="btn btn-outline-success" style="margin-right: 10px;"  (click)="alterar()">Alterar</button>
+                    <button type="button" class="btn btn-outline-success" style="margin-right: 10px;"  (click)="excluir()">Excluir</button>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</app-layout>
+
+

@@ -5,4 +5,4 @@ export class Matricula  {
     codigo: string;
     aluno: Aluno;
     listaMatriculaCurso: MatriculaCurso[] = [];
-}
+} 

@@ -1,0 +1,75 @@
+
+<app-layout>
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Venda - {{operacao}}</h5>  
+          <div class="row">
+            <div class="form-group col-lg-12">
+                <label for="aluno"class="control-label">Cliente:</label>
+                <select [(ngModel)]="venda.cliente" class="form-control">
+                    <option [ngValue]="null">Selecione</option>  
+                    <option *ngFor="let cliente of listaCliente" [ngValue]="cliente">{{cliente.nome}}</option>
+                </select>              
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Adicionar Venda</h5>  
+              <div class="row">
+                <div class="form-group col-lg-6">
+                    <label for="aluno"class="control-label">Venda:</label>
+                    <select [(ngModel)]="vendaItem.produto" class="form-control">
+                        <option [ngValue]="null">Selecione</option>  
+                        <option *ngFor="let produto of listaProduto" [ngValue]="produto">{{produto.nome}}</option> 
+                    </select>                     
+                </div>
+
+                <div class="form-group col-lg-6">
+                    <label for="dataVendaItem"class="control-label">Data Venda:</label>
+                    <input type="date" class="form-control" [(ngModel)]="vendaItem.dataVendaItem" />
+                </div>
+                
+              </div>
+              
+              <div class="row" style="margin-bottom: 20px;">
+                <div class="col-lg-12">
+                    <button *ngIf="this.operacao=='Incluir'" type="button" class="btn btn-outline-success" style="margin-right: 10px;" (click)="adicionar()">Adicionar</button>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Produto</th>
+                        <th>Data da Venda</th>                                   
+                        <th></th>                                   
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let vendaItem of venda.listaVendaItem">                        
+                        <th>{{vendaItem.produto.nome}}</th>
+                        <td>{{vendaItem.dataVendaItem | date: 'dd/MM/yyyy'}}</td>
+                        <th><a style="cursor: pointer;" (click)="removerProduto(vendaItem)">X</a></th>
+                      </tr>                  
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </div>            
+          
+
+          <div class="row" style="margin-bottom: 20px; margin-top: 20px;">
+            <div class="col-lg-12">
+              <button *ngIf="this.operacao=='Incluir'" type="button" class="btn btn-outline-success" style="margin-right: 10px;" (click)="incluir()">Incluir</button>              
+              <button type="button" class="btn btn-outline-success" style="margin-right: 10px;" (click)="voltar()">Voltar</button>              
+            </div>
+          </div>
+
+        </div>
+    </div>
+</app-layout>

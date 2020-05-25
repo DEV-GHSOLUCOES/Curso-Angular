@@ -20,7 +20,7 @@
                     <label for="aluno"class="control-label">Curso:</label>
                     <select [(ngModel)]="matriculaCurso.curso" class="form-control">
                         <option [ngValue]="null">Selecione</option>  
-                        <option *ngFor="let curso of listaCurso" [ngValue]="curso">{{curso.nome}}</option>
+                        <option *ngFor="let curso of listaCurso" [ngValue]="curso">{{curso.nome}}</option> 
                     </select>                     
                 </div>
 

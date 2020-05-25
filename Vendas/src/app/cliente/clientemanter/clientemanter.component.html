@@ -1,0 +1,54 @@
+
+
+<app-layout>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Cliente - {{operacao}}</h5>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="nome" class="control-label">Nome:</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.nome" />
+                 </div>
+
+                 <div class="form-group col-6">
+                    <label for="nome" class="control-label">Endereço:</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.endereco" />
+                 </div>
+
+                 <div class="form-group col-6">
+                     <label for="nome" class="control-label">Cidade:</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.cidade" />
+                 </div>
+
+                 <div class="form-group col-6">
+                    <label for="nome" class="control-label">Cep:</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.cep" />
+                 </div>
+
+                 <div class="form-group col-6">
+                    <label for="nome" class="control-label">Estado:</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.uf" />
+                 </div>
+
+                 <div class="form-group col-6">
+                    <label for="nome" class="control-label">Telefone:</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.telefone" />
+                 </div>
+
+
+                
+                
+            </div>
+            <div class="row">
+
+                <div class="col-12">
+                    <button  *ngIf="operacao == 'Incluir'" type="button" class="btn btn-outline-success" style="margin-right: 10px;" (click)="incluir()">Incluir</button>
+                    <button  *ngIf="operacao == 'Alterar'" type="button" class="btn btn-outline-success" style="margin-right: 10px;" (click)="alterar()">Alterar</button>
+                    <button type="button" class="btn btn-outline-success" style="margin-right: 10px;" (click)="voltar()">Voltar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+</app-layout>

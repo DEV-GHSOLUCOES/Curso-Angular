@@ -1,0 +1,77 @@
+
+ <app-layout>
+    
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Cliente</h5>
+            <div class="row">
+                <div class="form-group col-12">
+                    <label for="nome" class="control-label">Nome:</label>
+                    <input type="text"  class="form-control" [(ngModel)]="nome"/>
+
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-12">
+                    <button type="button" class="btn btn-outline-success"(click)="pesquisar()">Pesquisar</button>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+
+                                <th></th>
+                                <th>codigo</th>
+                                <th>nome</th>
+                                <th>Endereco</th>
+                                <th>Cidade</th>
+                                <th>Cep</th>
+                                <th>UF</th>
+                                <th>Telefone</th>
+
+                                
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cliente of listaCliente">
+
+                                <th><input type="radio" name="selecionado" (change)="selecionar(cliente)">  </th>
+                                <td>{{cliente.codigo}}</td>
+                                <td>{{cliente.nome}}</td>
+                                <td>{{cliente.endereco}} </td>
+                                <td>{{cliente.cidade}} </td>
+                                <td>{{cliente.cep}} </td>
+                                <td>{{cliente.uf}} </td>
+                                <td>{{cliente.telefone}} </td>
+
+
+                               
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-12">
+                    <button type="button" class="btn btn-outline-success" style="margin-right: 10px;"  (click)="incluir()">Incluir</button>
+                    <button type="button" class="btn btn-outline-success" style="margin-right: 10px;"  (click)="alterar()">Alterar</button>
+                    <button type="button" class="btn btn-outline-success" style="margin-right: 10px;"  (click)="excluir()">Excluir</button>
+                </div>
+            </div>
+
+
+        </div> 
+
+    </div> 
+
+</app-layout>
